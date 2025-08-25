@@ -1,0 +1,375 @@
+{
+  "1": {
+    "inputs": {
+      "image": "doll_1.webp"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "3": {
+    "inputs": {
+      "input_string": "high quality images, high definition"
+    },
+    "class_type": "get_string",
+    "_meta": {
+      "title": "输入字符串"
+    }
+  },
+  "4": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "26",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "5": {
+    "inputs": {
+      "text": [
+        "3",
+        0
+      ],
+      "clip": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "guidance": 3.5,
+      "conditioning": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "Flux引导"
+    }
+  },
+  "8": {
+    "inputs": {
+      "model_path": "svdq-int4-flux.1-dev",
+      "cache_threshold": 0,
+      "attention": "nunchaku-fp16",
+      "cpu_offload": "auto",
+      "device_id": 0,
+      "data_type": "bfloat16",
+      "i2f_mode": "enabled"
+    },
+    "class_type": "NunchakuFluxDiTLoader",
+    "_meta": {
+      "title": "Nunchaku FLUX DiT Loader"
+    }
+  },
+  "9": {
+    "inputs": {
+      "lora_name": "Flux Dev模型4步出图lora_Flux Dev模型4步出图lora.safetensors",
+      "lora_strength": 1.0000000000000002,
+      "model": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "NunchakuFluxLoraLoader",
+    "_meta": {
+      "title": "Nunchaku FLUX.1 LoRA Loader"
+    }
+  },
+  "10": {
+    "inputs": {
+      "lora_name": "lumi_v2\\lumiV3.safetensors",
+      "lora_strength": 1.0000000000000002,
+      "model": [
+        "9",
+        0
+      ]
+    },
+    "class_type": "NunchakuFluxLoraLoader",
+    "_meta": {
+      "title": "Nunchaku FLUX.1 LoRA Loader"
+    }
+  },
+  "11": {
+    "inputs": {
+      "vae_name": "FLUX1\\ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "12": {
+    "inputs": {
+      "model_type": "flux",
+      "text_encoder1": "t5xxl_fp8.safetensors",
+      "text_encoder2": "clip_l.safetensors",
+      "t5_min_length": 512,
+      "use_4bit_t5": "disable",
+      "int4_model": "none"
+    },
+    "class_type": "NunchakuTextEncoderLoader",
+    "_meta": {
+      "title": "Nunchaku Text Encoder Loader (Deprecated)"
+    }
+  },
+  "13": {
+    "inputs": {
+      "lora_name": "汉服系列大全_风格化摄影服装.safetensors",
+      "lora_strength": 0.4300000000000001,
+      "model": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "NunchakuFluxLoraLoader",
+    "_meta": {
+      "title": "Nunchaku FLUX.1 LoRA Loader"
+    }
+  },
+  "14": {
+    "inputs": {
+      "lora_name": "hand_fix\\Detailed_Hands-000001.safetensors",
+      "lora_strength": 0.4200000000000001,
+      "model": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "NunchakuFluxLoraLoader",
+    "_meta": {
+      "title": "Nunchaku FLUX.1 LoRA Loader"
+    }
+  },
+  "15": {
+    "inputs": {
+      "lora_name": "jk格裙，丝袜大腿特写，绝对领域.safetensors",
+      "lora_strength": 0.6700000000000002,
+      "model": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "NunchakuFluxLoraLoader",
+    "_meta": {
+      "title": "Nunchaku FLUX.1 LoRA Loader"
+    }
+  },
+  "16": {
+    "inputs": {
+      "lora_name": "cosplay.safetensors",
+      "lora_strength": 0.8300000000000002,
+      "model": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "NunchakuFluxLoraLoader",
+    "_meta": {
+      "title": "Nunchaku FLUX.1 LoRA Loader"
+    }
+  },
+  "17": {
+    "inputs": {
+      "lora_name": "lora集合\\nsfw_flux_lora_v1.safetensors",
+      "lora_strength": 0.8900000000000001,
+      "model": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "NunchakuFluxLoraLoader",
+    "_meta": {
+      "title": "Nunchaku FLUX.1 LoRA Loader"
+    }
+  },
+  "18": {
+    "inputs": {
+      "width_factor": 2,
+      "height_factor": 3,
+      "overlap_rate": 0.30000000000000004,
+      "image": [
+        "24",
+        0
+      ]
+    },
+    "class_type": "TTP_Tile_image_size",
+    "_meta": {
+      "title": "🪐TTP_Tile_image_size"
+    }
+  },
+  "19": {
+    "inputs": {
+      "tile_width": [
+        "18",
+        0
+      ],
+      "tile_height": [
+        "18",
+        1
+      ],
+      "image": [
+        "24",
+        0
+      ]
+    },
+    "class_type": "TTP_Image_Tile_Batch",
+    "_meta": {
+      "title": "🪐TTP_Image_Tile_Batch"
+    }
+  },
+  "20": {
+    "inputs": {
+      "image": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "ImpactImageBatchToImageList",
+    "_meta": {
+      "title": "Image Batch to Image List"
+    }
+  },
+  "21": {
+    "inputs": {
+      "pixels": [
+        "20",
+        0
+      ],
+      "vae": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "22": {
+    "inputs": {
+      "tile_size": 512,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 8,
+      "samples": [
+        "25",
+        0
+      ],
+      "vae": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeTiled",
+    "_meta": {
+      "title": "VAE解码（分块）"
+    }
+  },
+  "23": {
+    "inputs": {
+      "images": [
+        "22",
+        0
+      ]
+    },
+    "class_type": "ImageListToImageBatch",
+    "_meta": {
+      "title": "Image List to Image Batch"
+    }
+  },
+  "24": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 2.5000000000000004,
+      "image": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "ImageScaleBy",
+    "_meta": {
+      "title": "缩放图像（比例）"
+    }
+  },
+  "25": {
+    "inputs": {
+      "seed": 356826187617373,
+      "steps": 5,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 0.6000000000000001,
+      "model": [
+        "14",
+        0
+      ],
+      "positive": [
+        "7",
+        0
+      ],
+      "negative": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "21",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "26": {
+    "inputs": {
+      "padding": 64,
+      "tiles": [
+        "23",
+        0
+      ],
+      "positions": [
+        "19",
+        1
+      ],
+      "original_size": [
+        "19",
+        2
+      ],
+      "grid_size": [
+        "19",
+        3
+      ]
+    },
+    "class_type": "TTP_Image_Assy",
+    "_meta": {
+      "title": "🪐TTP_Image_Assy"
+    }
+  }
+}

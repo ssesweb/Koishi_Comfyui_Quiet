@@ -1,0 +1,257 @@
+{
+  "1": {
+    "inputs": {
+      "input_string": "女孩鹿鸣 咖啡"
+    },
+    "class_type": "get_string",
+    "_meta": {
+      "title": "输入字符串"
+    }
+  },
+  "2": {
+    "inputs": {
+      "width": 896,
+      "height": 1600,
+      "batch_size": 1
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "空Latent图像（SD3）"
+    }
+  },
+  "3": {
+    "inputs": {
+      "seed": 239457670674349,
+      "steps": 5,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "20",
+        0
+      ],
+      "positive": [
+        "10",
+        0
+      ],
+      "negative": [
+        "12",
+        0
+      ],
+      "latent_image": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "4": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "5": {
+    "inputs": {
+      "lora_name": "Flux Dev模型4步出图lora_Flux Dev模型4步出图lora.safetensors",
+      "lora_strength": 1.0000000000000002,
+      "model": [
+        "9",
+        0
+      ]
+    },
+    "class_type": "NunchakuFluxLoraLoader",
+    "_meta": {
+      "title": "Nunchaku FluxLora 加载器"
+    }
+  },
+  "8": {
+    "inputs": {
+      "lora_name": "flux\\CG厚涂风格-少女_v1.safetensors",
+      "lora_strength": 1.0000000000000002,
+      "model": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "NunchakuFluxLoraLoader",
+    "_meta": {
+      "title": "Nunchaku FluxLora 加载器"
+    }
+  },
+  "9": {
+    "inputs": {
+      "model_path": "svdq-int4-flux.1-dev",
+      "cache_threshold": 0,
+      "attention": "nunchaku-fp16",
+      "cpu_offload": "auto",
+      "device_id": 0,
+      "data_type": "bfloat16",
+      "i2f_mode": "enabled"
+    },
+    "class_type": "NunchakuFluxDiTLoader",
+    "_meta": {
+      "title": "Nunchaku FluxDiT 加载器"
+    }
+  },
+  "10": {
+    "inputs": {
+      "guidance": 3.5,
+      "conditioning": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "Flux引导"
+    }
+  },
+  "12": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "13": {
+    "inputs": {
+      "text": [
+        "15",
+        0
+      ],
+      "clip": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "14": {
+    "inputs": {
+      "model_type": "flux",
+      "text_encoder1": "t5xxl_fp8.safetensors",
+      "text_encoder2": "clip_l.safetensors",
+      "t5_min_length": 512,
+      "use_4bit_t5": "disable",
+      "int4_model": "none"
+    },
+    "class_type": "NunchakuTextEncoderLoader",
+    "_meta": {
+      "title": "Nunchaku 文本编码加载器"
+    }
+  },
+  "15": {
+    "inputs": {
+      "system_prompt": "You are Flux's prompt word expansion assistant.\nGenerate  fluent English sentences based on the input Chinese phrase.\ninput:\n女孩鹿鸣 英文名‘Lumi’在雪天\n\nOutput: English caption (word limit 100 words)\n\nA young girl \"lumi\" stands in the snow, dressed in a cozy winter outfit with a plaid skirt and boots. Her breath forms a faint mist in the cold air as the pale sunlight reflects across the icy ground. The atmosphere feels serene and cinematic, like a winter film still.",
+      "user_prompt": "Flux's prompt word expansion，女孩鹿鸣 英文名‘Lumi’ 水蓝眼睛",
+      "temperature": 0,
+      "is_memory": "disable",
+      "is_tools_in_sys_prompt": "disable",
+      "is_locked": "disable",
+      "main_brain": "enable",
+      "max_length": 512,
+      "imgbb_api_key": "",
+      "conversation_rounds": 100,
+      "historical_record": "",
+      "is_enable": true,
+      "stream": false,
+      "model": [
+        "16",
+        0
+      ],
+      "user_prompt_input": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "LLM",
+    "_meta": {
+      "title": "☁️API LLM通用链路"
+    }
+  },
+  "16": {
+    "inputs": {
+      "model_name": "GLM-4-Flash",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4",
+      "api_key": "11a222f22c4949afa72c6507b10e9221.DqmbQvGBuhPSoEEo",
+      "is_ollama": false
+    },
+    "class_type": "LLM_api_loader",
+    "_meta": {
+      "title": "☁️API LLM加载器"
+    }
+  },
+  "17": {
+    "inputs": {
+      "vae_name": "FLUX1\\ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "18": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "19": {
+    "inputs": {
+      "preview": "In the warm glow of a café, the water-blue-eyed girl Lumi, known as Lu Ming in Chinese, sips her coffee, her gaze lost in thought, the steam rising like a whisper against the cool morning air.",
+      "source": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "预览任意"
+    }
+  },
+  "20": {
+    "inputs": {
+      "lora_name": "lumi_v2\\lumiV3.safetensors",
+      "lora_strength": 0.6000000000000001,
+      "model": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "NunchakuFluxLoraLoader",
+    "_meta": {
+      "title": "Nunchaku FluxLora 加载器"
+    }
+  }
+}
